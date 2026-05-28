@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet"
+        href="/static/cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll%40v1.2/animation_utility.css">
+    <link rel="stylesheet" href="/static/https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Posture Guardian | Spine Health Predictor</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header" class="fixed-top pt-5 scrollanimation animated fadeIn">
+        <nav class="navbar navbar-expand-xl mx-5">
+            <div class="container-fluid">
+                <!-- TEXT LOGO -->
+                <a class="navbar-brand alignmatrix-logo" href={{ url_for('index') }}>
+                    ALIGNMATRIX
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars-staggered accent-color-2"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mb-2 mb-xl-0 gap-xl-4 gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('index') }}>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('about') }}>About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('methodology') }}>Methodology</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('detect') }}>Detect</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href={{ url_for('report') }}>Report</a>
+                        </li>
+                        {% if session.get('user_id') %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                        </li>
+                        {% else %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                        </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Header -->
+
+    <!-- Forecast Page -->
+    <main>
+        <!-- Banner Section -->
+        <div class="section mt-5 position-relative bg-attach-fixed overflow-hidden mx-auto rounded-4"
+            style="background-image: url(/static/image/im5.png); height: 50vh; max-width: 1816px;">
+            <div class="bg-overlay"></div>
+            <div class="r-container h-100 position-relative" style="z-index: 2;">
+                <div class="d-flex flex-column w-100 h-100 justify-content-center mx-auto align-items-center text-white gap-3"
+                    style="max-width: 895px;">
+                    <h2 class="m-0 text-white">Detect</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Posture Detection Section -->
+        <div class="section">
+            <div class="r-container">
+
+                <!-- Title -->
+                <h3 class="m-0 text-dark text-center">Posture Report & Health Analysis</h3>
+                <p class="text-center mb-4">
+                    Select a date range to view your recorded posture logs and personalised health recommendations.
+                </p>
+
+                <!-- Date Filter Section -->
+                <div class="section">
+                    <div class="r-container d-flex justify-content-center">
+                        <div class="bg-gradient-footer p-5 rounded-4 w-100" style="max-width: 900px;">
+
+                            <form method="POST" action="{{ url_for('report') }}">
+                                <div class="row g-3 align-items-center">
+
+                                    <div class="col-md-5">
+                                        <label class="text-white mb-2">Start Date</label>
+                                        <input type="date" class="form-control py-3 px-4" name="start_date" required>
+                                    </div>
+
+                                    <div class="col-md-5">
+                                        <label class="text-white mb-2">End Date</label>
+                                        <input type="date" class="form-control py-3 px-4" name="end_date" required>
+                                    </div>
+
+                                    <div class="col-md-2 d-flex align-items-end">
+                                        <button type="submit" class="btn btn-accent py-3 w-100 rounded-3 font-2">
+                                            Generate
+                                        </button>
+                                    </div>
+
+                                </div>
+                            </form>
+
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Report Results -->
+                <div class="mt-5">
+
+                    {% if logs %}
+
+                    <!-- Logs Table -->
+                    <h4 class="text-center mb-4">Posture Logs</h4>
+
+                    <div class="table-responsive">
+                        <table class="table table-bordered text-center">
+                            <thead class="table-dark">
+                                <tr>
+                                    <th>Date & Time</th>
+                                    <th>Posture Type</th>
+                                    <th>Issue</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                                {% for log in logs %}
+                                <tr>
+                                    <td>{{ log.recorded_at }}</td>
+                                    <td>{{ log.posture_type }}</td>
+                                    <td>{{ log.issue_type }}</td>
+                                </tr>
+                                {% endfor %}
+                            </tbody>
+                        </table>
+                    </div>
+
+                    <!-- Summary Section -->
+                    <div class="mt-5 p-4 rounded-4 bg-light">
+
+                        <h4 class="text-center mb-4">Health Risk Summary</h4>
+
+                        <div class="row text-center mb-4">
+                            <div class="col-md-4">
+                                <h6>Most Frequent Issue</h6>
+                                <p class="fw-bold text-danger">{{ most_frequent_issue }}</p>
+                            </div>
+                            <div class="col-md-4">
+                                <h6>Repetition Percentage</h6>
+                                <p class="fw-bold text-warning">{{ repetition_percentage }}%</p>
+                            </div>
+                            <div class="col-md-4">
+                                <h6>Total Records</h6>
+                                <p class="fw-bold">{{ logs|length }}</p>
+                            </div>
+                        </div>
+
+                        {% if recommendation %}
+
+                        <div class="mt-5">
+                            <div class="card shadow-sm border p-5 rounded-4">
+
+                                <h4 class="text-center mb-4 text-primary">
+                                    Personalised Health Recommendation
+                                </h4>
+
+                                <div class="mb-4">
+                                    <p><strong>Description:</strong> {{ recommendation.description }}</p>
+                                </div>
+
+                                <div class="row">
+
+                                    <!-- LEFT COLUMN -->
+                                    <div class="col-md-6">
+
+                                        <div class="mb-4">
+                                            <h5 class="text-danger">Short-Term Risks</h5>
+                                            <ul class="ps-3">
+                                                {% for item in recommendation.short_term_risks %}
+                                                <li class="mb-2">{{ item }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h5 class="text-danger">Long-Term Risks</h5>
+                                            <ul class="ps-3">
+                                                {% for item in recommendation.long_term_risks %}
+                                                <li class="mb-2">{{ item }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                    <!-- RIGHT COLUMN -->
+                                    <div class="col-md-6">
+
+                                        <div class="mb-4">
+                                            <h5 class="text-warning">Possible Future Conditions</h5>
+                                            <ul class="ps-3">
+                                                {% for item in recommendation.possible_diseases %}
+                                                <li class="mb-2">{{ item }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h5 class="text-success">Recommended Exercises</h5>
+                                            <ul class="ps-3">
+                                                {% for item in recommendation.recommended_exercises %}
+                                                <li class="mb-2">{{ item }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+
+                                        <div class="mb-4">
+                                            <h5 class="text-info">Ergonomic Advice</h5>
+                                            <ul class="ps-3">
+                                                {% for item in recommendation.ergonomic_advice %}
+                                                <li class="mb-2">{{ item }}</li>
+                                                {% endfor %}
+                                            </ul>
+                                        </div>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+                        </div>
+
+                        {% endif %}
+
+                    </div>
+
+                    {% elif searched %}
+
+                    <div class="alert alert-warning text-center">
+                        No posture records found for the selected date range.
+                    </div>
+
+                    {% endif %}
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <footer>
+            <div class="section py-5">
+                <div class="d-flex flex-column gap-5 p-5 bg-gradient-footer rounded-4 accent-primary">
+
+                    <!-- Footer Top -->
+                    <div class="d-flex flex-xl-row flex-column gap-3 justify-content-between align-items-center">
+                        <a href={{ url_for('index') }} class="footer-logo alignmatrix-footer-logo">
+                            ALIGNMATRIX
+                        </a>
+
+                        <div class="d-flex flex-xl-row flex-column gap-4">
+                            <div>
+                                <a href={{ url_for('index') }}
+                                    class="link d-flex flex-row gap-3 align-items-center">Home</a>
+                            </div>
+                            <div>
+                                <a href={{ url_for('about') }}
+                                    class="link d-flex flex-row gap-3 align-items-center">About</a>
+                            </div>
+                            <div>
+                                <a href={{ url_for('methodology') }}
+                                    class="link d-flex flex-row gap-3 align-items-center">Methodology</a>
+                            </div>
+                            <div>
+                                <a href={{ url_for('detect') }}
+                                    class="link d-flex flex-row gap-3 align-items-center">Detect</a>
+                            </div>
+                            <div>
+                                <a href={{ url_for('report') }}
+                                    class="link d-flex flex-row gap-3 align-items-center">Report</a>
+                            </div>
+                            {% if session.get('user_id') %}
+                            <div>
+                                <a href="{{ url_for('logout') }}" class="link d-flex flex-row gap-3 align-items-center">
+                                    Logout
+                                </a>
+                            </div>
+                            {% else %}
+                            <div>
+                                <a href="{{ url_for('login') }}" class="link d-flex flex-row gap-3 align-items-center">
+                                    Login
+                                </a>
+                            </div>
+                            {% endif %}
+                        </div>
+                    </div>
+
+                    <!-- Mission Section -->
+                    <div class="d-flex flex-column gap-2 align-items-center justify-content-center accent-primary">
+                        <h2>Our Mission</h2>
+                        <p class="accent-primary text-center">
+                            To promote healthy sitting habits and prevent spine related health issues through
+                            intelligent
+                            posture monitoring, real time feedback, and AI driven analysis.
+                        </p>
+                        <div class="mt-3">
+                            <a href={{ url_for('login') }}
+                                class="btn btn-accent d-flex flex-row gap-2 rounded-pill px-4 py-2 align-items-center">
+                                <span>Start Monitoring</span>
+                                <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                            </a>
+                        </div>
+                    </div>
+
+                    <hr class="border-1 border-light" style="opacity: 1;">
+
+                    <!-- Footer Bottom -->
+                    <div
+                        class="d-flex flex-xl-row flex-column gap-xl-2 gap-3 align-items-center justify-content-between">
+                        <span class="text-white fs-6 font-2">
+                            © 2026 Posture Guardian | All rights reserved
+                        </span>
+                        <div class="d-flex flex-xl-row flex-column gap-3">
+                            <div>
+                                Email: postureguardian.ai@example.com
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </footer>
+
+
+
+        <!-- Scripts -->
+        <script src="/static/js/vendor/jquery.min.js"></script>
+        <script src="/static/js/vendor/bootstrap.bundle.min.js"></script>
+        <script src="/static/js/vendor/swiper-bundle.min.js"></script>
+        <script src="/static/js/script.js"></script>
+        <script src="/static/js/swiper-script.js"></script>
+        <script src="/static/js/submit-form.js"></script>
+        <script src="/static/js/vendor/isotope.pkgd.min.js"></script>
+        <script src="/static/js/video_embedded.js"></script>
+        <script src="/static/js/vendor/fslightbox.js"></script>
+        <script
+            src="/static/cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll%40v1.0/oyethemes_onscroll_animation.js"></script>
+</body>
+
+
+</html>

@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="/static/cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll%40v1.2/animation_utility.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Posture Guardian | Spine Health Predictor</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header" class="fixed-top pt-5 scrollanimation animated fadeIn">
+        <nav class="navbar navbar-expand-xl mx-5">
+            <div class="container-fluid">
+                <!-- TEXT LOGO -->
+                <a class="navbar-brand alignmatrix-logo" href={{ url_for('index') }}>
+                    ALIGNMATRIX
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars-staggered accent-color-2"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mb-2 mb-xl-0 gap-xl-4 gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('index') }}>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('about') }}>About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page"  href={{ url_for('methodology') }}>Methodology</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('detect') }}>Detect</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('report') }}>Report</a>
+                        </li>
+                        {% if session.get('user_id') %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Header -->
+
+    <!-- Main -->
+    <main>
+        <!-- Banner -->
+        <div class="section mt-5 position-relative bg-attach-fixed overflow-hidden mx-auto rounded-4"
+            style="background-image: url(/static/image/im5.png); height: 70vh; max-width: 1816px;">
+            <div class="bg-overlay"></div>
+            <div class="r-container h-100 position-relative" style="z-index: 2;">
+                <div class="d-flex flex-column w-100 h-100 justify-content-center mx-auto align-items-center text-white gap-3"
+                    style="max-width: 895px;">
+                    <h2 class="m-0 text-white">Methodology</h2>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section Methodology -->
+        <div class="section">
+            <div class="r-container d-flex flex-column gap-3">
+
+                <div class="d-flex flex-column gap-2 align-items-center justify-content-center mx-auto text-center"
+                    style="max-width: 700px;">
+                    <div class="sub-heading">
+                        <h6 class="m-0">System Methodology</h6>
+                    </div>
+                    <h3>Step-by-Step Implementation of Posture Guardian & Spine Health Predictor</h3>
+                    <p>
+                        The Posture Guardian system integrates computer vision, pose estimation,
+                        rule-based posture classification, and database-driven analytics to monitor,
+                        analyse, and predict long-term spine health risks.
+                    </p>
+                </div>
+
+                <div class="row row-cols-xl-3 row-cols-1 align-items-start">
+
+                    <!-- Step 1 -->
+                    <div class="col mb-3">
+                        <div class="card card-service accent">
+                            <h5>1. Real-Time Data Capture</h5>
+                            <p>
+                                The system captures live video using a webcam or mobile camera.
+                                Frames are continuously processed to detect human body landmarks
+                                using MediaPipe Pose estimation.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 2 -->
+                    <div class="col mb-3">
+                        <div class="card card-service accent">
+                            <h5>2. Pose Estimation</h5>
+                            <p>
+                                Key body landmarks such as shoulders, hips, knees, and nose are
+                                extracted to construct a skeletal model. This allows measurement
+                                of spine alignment and joint positioning.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 3 -->
+                    <div class="col mb-3">
+                        <div class="card card-service accent">
+                            <h5>3. Angle Calculation</h5>
+                            <p>
+                                Mathematical computations are performed to calculate spine depth,
+                                side bending, neck inclination, and knee joint angles. These values
+                                represent deviations from ideal posture alignment.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 4 -->
+                    <div class="col mb-3">
+                        <div class="card card-service accent">
+                            <h5>4. Rule-Based Posture Classification</h5>
+                            <p>
+                                Based on predefined threshold values, posture is classified into
+                                categories such as Forward Bend, Backward Bend, Left Lean,
+                                Right Lean, and Knee Stress. Each posture is assigned a risk percentage.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 5 -->
+                    <div class="col mb-3">
+                        <div class="card card-service accent">
+                            <h5>5. Periodic Data Logging</h5>
+                            <p>
+                                Every 5 minutes, detected posture issues are stored in a MySQL
+                                database under the logged-in user ID. This creates a structured
+                                posture history for long-term analysis.
+                            </p>
+                        </div>
+                    </div>
+
+                    <!-- Step 6 -->
+                    <div class="col mb-3">
+                        <div class="card card-service accent">
+                            <h5>6. Long-Term Issue Analysis</h5>
+                            <p>
+                                Stored posture logs are analysed to determine the most frequently
+                                occurring posture issue for each user. This identifies dominant
+                                spine stress patterns over time.
+                            </p>
+                        </div>
+                    </div>
+
+                </div>
+
+                <!-- Final Step -->
+                <div class="col mb-3">
+                    <div class="card card-service accent">
+                        <h5 style="text-align: center;">7. Health Risk Prediction & Recommendations</h5>
+                        <p>
+                            Based on repeated posture deviations and accumulated risk levels,
+                            the system generates personalised recommendations including corrective
+                            exercises, ergonomic suggestions, and posture awareness alerts.
+                            This preventive approach helps reduce the likelihood of chronic back pain
+                            and musculoskeletal disorders.
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="section py-5">
+            <div class="d-flex flex-column gap-5 p-5 bg-gradient-footer rounded-4 accent-primary">
+
+                <!-- Footer Top -->
+                <div class="d-flex flex-xl-row flex-column gap-3 justify-content-between align-items-center">
+                    <a href={{ url_for('index') }} class="footer-logo alignmatrix-footer-logo">
+                        ALIGNMATRIX
+                    </a>
+
+                    <div class="d-flex flex-xl-row flex-column gap-4">
+                        <div>
+                            <a href={{ url_for('index') }} class="link d-flex flex-row gap-3 align-items-center">Home</a>
+                        </div>
+                        <div>
+                            <a href={{ url_for('about') }} class="link d-flex flex-row gap-3 align-items-center">About</a>
+                        </div>
+                        <div>
+                            <a href={{ url_for('methodology') }} class="link d-flex flex-row gap-3 align-items-center">Methodology</a>
+                        </div>
+                        <div>
+                            <a href={{ url_for('detect') }} class="link d-flex flex-row gap-3 align-items-center">Detect</a>
+                        </div>
+                        <div>
+                            <a href={{ url_for('report') }} class="link d-flex flex-row gap-3 align-items-center">Report</a>
+                        </div>
+                        {% if session.get('user_id') %}
+                            <div>
+                                <a href="{{ url_for('logout') }}" class="link d-flex flex-row gap-3 align-items-center">
+                                    Logout
+                                </a>
+                            </div>
+                        {% else %}
+                            <div>
+                                <a href="{{ url_for('login') }}" class="link d-flex flex-row gap-3 align-items-center">
+                                    Login
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Mission Section -->
+                <div class="d-flex flex-column gap-2 align-items-center justify-content-center accent-primary">
+                    <h2>Our Mission</h2>
+                    <p class="accent-primary text-center">
+                        To promote healthy sitting habits and prevent spine related health issues through intelligent
+                        posture monitoring, real time feedback, and AI driven analysis.
+                    </p>
+                    <div class="mt-3">
+                        <a href={{ url_for('login') }}
+                            class="btn btn-accent d-flex flex-row gap-2 rounded-pill px-4 py-2 align-items-center">
+                            <span>Start Monitoring</span>
+                            <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <hr class="border-1 border-light" style="opacity: 1;">
+
+                <!-- Footer Bottom -->
+                <div class="d-flex flex-xl-row flex-column gap-xl-2 gap-3 align-items-center justify-content-between">
+                    <span class="text-white fs-6 font-2">
+                        © 2026 Posture Guardian | All rights reserved
+                    </span>
+                    <div class="d-flex flex-xl-row flex-column gap-3">
+                        <div>
+                            Email: postureguardian.ai@example.com
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+    <!-- Scripts -->
+    <script src="/static/js/vendor/jquery.min.js"></script>
+    <script src="/static/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/vendor/swiper-bundle.min.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/swiper-script.js"></script>
+    <script src="/static/js/submit-form.js"></script>
+    <script src="/static/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="/static/js/video_embedded.js"></script>
+    <script src="/static/js/vendor/fslightbox.js"></script>
+    <script src="/static/cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll%40v1.0/oyethemes_onscroll_animation.js"></script>
+</body>
+
+
+
+
+</html>

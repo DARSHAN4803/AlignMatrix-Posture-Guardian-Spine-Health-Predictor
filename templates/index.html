@@ -1,0 +1,612 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="/static/cdnjs.cloudflare.com/ajax/libs/animate.css/3.7.0/animate.min.css">
+    <link rel="stylesheet" href="/static/cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll%40v1.2/animation_utility.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <title>Posture Guardian | Spine Health Predictor</title>
+</head>
+
+<body>
+    <!-- Header -->
+    <div id="header" class="fixed-top pt-5 scrollanimation animated fadeIn">
+        <nav class="navbar navbar-expand-xl mx-5">
+            <div class="container-fluid">
+                <!-- TEXT LOGO -->
+                <a class="navbar-brand alignmatrix-logo" href={{ url_for('index') }}>
+                    ALIGNMATRIX
+                </a>
+
+
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                    aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                    <i class="fa-solid fa-bars-staggered accent-color-2"></i>
+                </button>
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mb-2 mb-xl-0 gap-xl-4 gap-1">
+                        <li class="nav-item">
+                            <a class="nav-link active" aria-current="page" href={{ url_for('index') }}>Home</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('about') }}>About</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('methodology') }}>Methodology</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('detect') }}>Detect</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" href={{ url_for('report') }}>Report</a>
+                        </li>
+                        {% if session.get('user_id') %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('logout') }}">Logout</a>
+                            </li>
+                        {% else %}
+                            <li class="nav-item">
+                                <a class="nav-link" href="{{ url_for('login') }}">Login</a>
+                            </li>
+                        {% endif %}
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </div>
+    <!-- End Header -->
+
+    <!-- Main -->
+    <main>
+        <!-- Banner -->
+        <div class="section pt-5 position-relative">
+            <div class="mx-auto" style="max-width: 1816px;">
+                <img src="/static/image/im1.png" class="img-fluid rounded-4 w-100" style="height: 100vh;" alt="">
+            </div>
+            <div class="mx-xl-5 overflow-visible position-absolute bottom-0 start-0 end-0">
+                <div class="d-flex flex-xl-row flex-column gap-3" style="padding-bottom: 6em;">
+                    <div class="col mb-3 mb-xl-0">
+                        <div class="py-5 ps-5 pe-4 text-xl-start text-center">
+                            <h1 class="accent-primary"><h1 class="accent-primary">Monitor Your Posture, Protect Your Spine</h1>
+</h1>
+                        </div>
+                    </div>
+                    <div class="col mb-3 mb-xl-0 scrollanimation animated fadeInRight">
+                        <div class="d-flex flex-column h-100 align-items-xl-start align-items-center text-xl-start text-center gap-xl-5 gap-3 p-5 bg-accent-primary"
+                            style="border-top-left-radius: 20px;">
+                            <p>
+                                The Posture Guardian system uses computer vision and machine learning to analyse body
+                                posture in real time through a camera. It detects improper sitting postures, estimates
+                                posture risk levels, and provides instant corrective guidance to prevent spine related
+                                health issues.
+                            </p>
+                            <div class="d-flex flex-xl-row flex-column gap-5 align-items-center">
+                                <div class="w-max-content">
+                                    <a href={{ url_for('login') }} class="btn btn-accent d-flex flex-row gap-3">
+                                        <span>Get Started</span>
+
+                                        <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                                    </a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Section About Us -->
+        <div class="section bg-attach-cover">
+            <div class="r-container">
+                <div class="row row-cols-xl-2 row-cols-1">
+
+                    <!-- Image Side -->
+                    <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
+                        <div class="position-relative h-100">
+                            <img src="/static/image/im4.jpeg" class="img-fluid rounded-4 h-100 w-100"
+                                style="aspect-ratio: 1/1;" alt="Posture Analysis">
+                            <div class="bg-accent-primary pt-4 pe-4 text-center position-absolute bottom-0 start-0"
+                                style="border-top-right-radius: 20px;">
+                                <div class="d-flex flex-row gap-3 align-items-center green">
+                                    <div class="d-flex flex-column">
+                                        <h1>Real Time</h1>
+                                        <h5>Posture Monitoring</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Content Side -->
+                    <div class="col mb-3">
+                        <div
+                            class="d-flex flex-column gap-3 text-xl-start text-center ps-xl-4 pe-3 h-100 justify-content-between">
+
+                            <div class="sub-heading">
+                                <h6 class="m-0">About Us</h6>
+                            </div>
+
+                            <h3>AI Based Posture Detection and Spine Health Monitoring</h3>
+
+                            <p>
+                                The Posture Guardian and Spine Health Predictor is an intelligent system that uses computer
+                                vision and machine learning to analyse human posture through a camera. It continuously monitors
+                                body alignment, identifies incorrect sitting postures, and calculates posture risk levels to
+                                prevent long term spine related health issues.
+                            </p>
+
+                            <div class="d-flex flex-column gap-4">
+
+                                <div
+                                    class="d-flex flex-xl-row flex-column align-items-xl-start align-items-center gap-3">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-user-check"></i>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-xl-start align-items-center gap-2">
+                                        <h5 class="m-0 green">Real Time Posture Detection</h5>
+                                        <p class="m-0">
+                                            The system detects key body points such as head, neck, shoulders, and spine to
+                                            identify improper posture instantly.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="d-flex flex-xl-row flex-column align-items-xl-start align-items-center gap-3">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-xl-start align-items-center gap-2">
+                                        <h5 class="m-0 green">Posture Risk Assessment</h5>
+                                        <p class="m-0">
+                                            Based on body angle deviations, the system calculates posture risk percentage and
+                                            alerts users when unhealthy posture is detected.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div
+                                    class="d-flex flex-xl-row flex-column align-items-xl-start align-items-center gap-3">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-heart-pulse"></i>
+                                    </div>
+                                    <div class="d-flex flex-column align-items-xl-start align-items-center gap-2">
+                                        <h5 class="m-0 green">Spine Health Improvement</h5>
+                                        <p class="m-0">
+                                            Corrective posture guidance and simple exercises help users maintain healthy
+                                            posture and reduce the risk of chronic back and neck pain.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                            <div class="w-max-content">
+                                <a href={{ url_for('login') }} class="btn btn-accent d-flex flex-row gap-3">
+                                    <span>Get Started</span>
+                                    <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                                </a>
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        <!-- Section Marquee -->
+        <div class="section p-0">
+            <div
+                class="d-flex flex-column gap-3 text-center align-items-center justify-content-center mx-auto position-relative my-5 accent-primary">
+
+                <!-- Marquee Row 1 -->
+                <div class="marquee-container bg-gradient-right" style="transform: rotate(3deg); position: relative;">
+                    <div class="marquee-content green-neon">
+
+                        <div class="marquee-item py-2 d-flex align-items-center justify-content-center">
+                            <h3 class="m-0">Posture</h3>
+                        </div>
+                        <div class="marquee-item py-2 d-flex align-items-center">
+                            <i class="fas fa-user-check" style="font-size: 45px;"></i>
+                        </div>
+
+                        <div class="marquee-item py-2 d-flex align-items-center justify-content-center">
+                            <h3 class="m-0">Detection</h3>
+                        </div>
+                        <div class="marquee-item py-2 d-flex align-items-center">
+                            <i class="fas fa-camera" style="font-size: 45px;"></i>
+                        </div>
+
+                        <div class="marquee-item py-2 d-flex align-items-center justify-content-center">
+                            <h3 class="m-0">Spine Health</h3>
+                        </div>
+                        <div class="marquee-item py-2 d-flex align-items-center">
+                            <i class="fas fa-heart-pulse" style="font-size: 45px;"></i>
+                        </div>
+
+                        <div class="marquee-item py-2 d-flex align-items-center justify-content-center">
+                            <h3 class="m-0">Prevention</h3>
+                        </div>
+                        <div class="marquee-item py-2 d-flex align-items-center">
+                            <i class="fas fa-shield-heart" style="font-size: 45px;"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+                <!-- Marquee Row 2 -->
+                <div class="marquee-container reverse bg-gradient-left"
+                    style="transform: rotate(-3deg); position: absolute;">
+                    <div class="marquee-content">
+
+                        <div class="marquee-item py-2 d-flex align-items-center justify-content-center">
+                            <h3 class="m-0">AI Monitoring</h3>
+                        </div>
+                        <div class="marquee-item py-2 d-flex align-items-center">
+                            <i class="fas fa-brain" style="font-size: 45px;"></i>
+                        </div>
+
+                        <div class="marquee-item py-2 d-flex align-items-center justify-content-center">
+                            <h3 class="m-0">Risk Analysis</h3>
+                        </div>
+                        <div class="marquee-item py-2 d-flex align-items-center">
+                            <i class="fas fa-triangle-exclamation" style="font-size: 45px;"></i>
+                        </div>
+
+                        <div class="marquee-item py-2 d-flex align-items-center justify-content-center">
+                            <h3 class="m-0">Ergonomics</h3>
+                        </div>
+                        <div class="marquee-item py-2 d-flex align-items-center">
+                            <i class="fas fa-chair" style="font-size: 45px;"></i>
+                        </div>
+
+                        <div class="marquee-item py-2 d-flex align-items-center justify-content-center">
+                            <h3 class="m-0">Wellness</h3>
+                        </div>
+                        <div class="marquee-item py-2 d-flex align-items-center">
+                            <i class="fas fa-dumbbell" style="font-size: 45px;"></i>
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <!-- Section Services -->
+        <div class="section">
+            <div class="r-container">
+
+                <!-- Section Heading -->
+                <div class="row row-cols-xl-2 row-cols-1 align-items-end">
+                    <div class="col mb-3">
+                        <div class="d-flex flex-column gap-3">
+                            <div class="sub-heading">
+                                <h6 class="m-0">Our Features</h6>
+                            </div>
+                            <h3>Intelligent Posture Monitoring for Better Spine Health</h3>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="position-relative">
+
+                    <!-- Swiper content -->
+                    <div class="swiper swiperService pt-5" style="z-index: 1;">
+                        <div class="swiper-wrapper">
+
+                            <!-- Slide 1 -->
+                            <div class="swiper-slide">
+                                <div class="card-service">
+                                    <h5>Real Time Posture Detection</h5>
+                                    <p>
+                                        Detects body posture continuously using camera input and identifies incorrect sitting
+                                        positions instantly.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+
+                            <!-- Slide 2 -->
+                            <div class="swiper-slide">
+                                <div class="card-service">
+                                    <h5>Spine Alignment Analysis</h5>
+                                    <p>
+                                        Analyses head, neck, shoulder, and spine alignment to detect slouching and forward
+                                        head posture.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+
+                            <!-- Slide 3 -->
+                            <div class="swiper-slide">
+                                <div class="card-service">
+                                    <h5>Posture Risk Assessment</h5>
+                                    <p>
+                                        Calculates posture risk percentage based on deviation angles and duration of poor
+                                        posture.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+
+                            <!-- Slide 4 -->
+                            <div class="swiper-slide">
+                                <div class="card-service">
+                                    <h5>Corrective Guidance & Alerts</h5>
+                                    <p>
+                                        Provides real time alerts and simple posture correction exercises to reduce spine
+                                        strain.
+                                    </p>
+                                    
+                                </div>
+                            </div>
+
+                        </div>
+
+                        <!-- Pagination -->
+                        <div class="swiper-pagination"></div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Section CTA -->
+        <div class="section">
+            <div class="r-container position-relative">
+                <div class="d-flex flex-column gap-3 accent-primary position-relative p-5 overflow-hidden bg-attach-cover"
+                    style="z-index: 2; background-image: url(/static/image/im7.png); border-radius: 30px;">
+                    
+                    <div class="bg-overlay"></div>
+
+                    <div class="d-flex flex-column gap-3 position-relative" style="max-width: 700px; z-index: 2;">
+                        
+                        <div class="sub-heading cta">
+                            <h6 class="m-0">Improve Your Sitting Habits</h6>
+                        </div>
+
+                        <h3>AI Powered Posture Monitoring for Better Spine Health</h3>
+
+                        <p class="accent-primary">
+                            The Posture Guardian and Spine Health Predictor continuously monitors body posture using computer
+                            vision techniques. It identifies incorrect sitting positions, evaluates posture risk levels, and
+                            provides instant corrective feedback to help prevent long term spine and musculoskeletal problems.
+                        </p>
+
+                        <div class="w-max-content">
+                            <a href={{ url_for('login') }} class="btn btn-accent d-flex flex-row gap-2 px-4 py-3">
+                                <span>Start Posture Check</span>
+                                <i class="rtmicon rtmicon-arrow-up-right"></i>
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+        <!-- Section How It Works -->
+        <div class="section">
+            <div class="r-container">
+                <div class="row row-cols-xl-2 row-cols-1">
+
+                    <!-- Image -->
+                    <div class="col mb-3 scrollanimation animated fadeInLeft adr-7">
+                        <div class="position-relative h-100">
+                            <img src="/static/image/im2.jpeg" class="img-fluid rounded-4 h-100 w-100"
+                                style="aspect-ratio: 9/10;" alt="Posture Detection Workflow">
+                        </div>
+                    </div>
+
+                    <!-- Content -->
+                    <div class="col mb-3">
+                        <div class="d-flex flex-column gap-3 ps-xl-5">
+
+                            <div class="sub-heading">
+                                <h6 class="m-0">System Workflow</h6>
+                            </div>
+
+                            <h3>How the Posture Guardian System Works</h3>
+
+                            <p>
+                                The Posture Guardian and Spine Health Predictor follows a structured workflow to analyse body
+                                posture, detect unhealthy sitting habits, and provide corrective guidance using artificial
+                                intelligence.
+                            </p>
+
+                            <div class="d-flex flex-column gap-4">
+
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-camera"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="m-0 green">Step 1: Live Camera Input</h5>
+                                        <p class="m-0">
+                                            The system captures real time video using a webcam or device camera while the user
+                                            is sitting or working.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-person"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="m-0 green">Step 2: Body Keypoint Detection</h5>
+                                        <p class="m-0">
+                                            Computer vision techniques detect key body points such as head, neck, shoulders,
+                                            spine, and hips from each video frame.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-chart-simple"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="m-0 green">Step 3: Posture Analysis</h5>
+                                        <p class="m-0">
+                                            The detected key points are analysed to calculate body angles and alignment in order
+                                            to identify correct or incorrect posture.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-triangle-exclamation"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="m-0 green">Step 4: Risk Level Estimation</h5>
+                                        <p class="m-0">
+                                            Based on posture deviation and duration, the system calculates a posture risk level
+                                            indicating potential strain on the spine.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-bell"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="m-0 green">Step 5: Alerts and Feedback</h5>
+                                        <p class="m-0">
+                                            If unhealthy posture is detected, real time alerts and visual feedback are shown to
+                                            help the user correct their posture immediately.
+                                        </p>
+                                    </div>
+                                </div>
+
+                                <div class="d-flex gap-3 align-items-start">
+                                    <div class="icon-box">
+                                        <i class="fa-solid fa-dumbbell"></i>
+                                    </div>
+                                    <div>
+                                        <h5 class="m-0 green">Step 6: Corrective Guidance</h5>
+                                        <p class="m-0">
+                                            The system suggests simple posture correction exercises and ergonomic tips to
+                                            improve spine health over time.
+                                        </p>
+                                    </div>
+                                </div>
+
+                            </div>
+
+                        </div>
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+    <footer>
+        <div class="section py-5">
+            <div class="d-flex flex-column gap-5 p-5 bg-gradient-footer rounded-4 accent-primary">
+
+                <!-- Footer Top -->
+                <div class="d-flex flex-xl-row flex-column gap-3 justify-content-between align-items-center">
+                    <a href={{ url_for('index') }} class="footer-logo alignmatrix-footer-logo">
+                        ALIGNMATRIX
+                    </a>
+
+                    <div class="d-flex flex-xl-row flex-column gap-4">
+                        <div>
+                            <a href={{ url_for('index') }} class="link d-flex flex-row gap-3 align-items-center">Home</a>
+                        </div>
+                        <div>
+                            <a href={{ url_for('about') }} class="link d-flex flex-row gap-3 align-items-center">About</a>
+                        </div>
+                        <div>
+                            <a href={{ url_for('methodology') }} class="link d-flex flex-row gap-3 align-items-center">Methodology</a>
+                        </div>
+                        <div>
+                            <a href={{ url_for('detect') }} class="link d-flex flex-row gap-3 align-items-center">Detect</a>
+                        </div>
+                        <div>
+                            <a href={{ url_for('report') }} class="link d-flex flex-row gap-3 align-items-center">Report</a>
+                        </div>
+                        {% if session.get('user_id') %}
+                            <div>
+                                <a href="{{ url_for('logout') }}" class="link d-flex flex-row gap-3 align-items-center">
+                                    Logout
+                                </a>
+                            </div>
+                        {% else %}
+                            <div>
+                                <a href="{{ url_for('login') }}" class="link d-flex flex-row gap-3 align-items-center">
+                                    Login
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- Mission Section -->
+                <div class="d-flex flex-column gap-2 align-items-center justify-content-center accent-primary">
+                    <h2>Our Mission</h2>
+                    <p class="accent-primary text-center">
+                        To promote healthy sitting habits and prevent spine related health issues through intelligent
+                        posture monitoring, real time feedback, and AI driven analysis.
+                    </p>
+                    <div class="mt-3">
+                        <a href={{ url_for('login') }}
+                            class="btn btn-accent d-flex flex-row gap-2 rounded-pill px-4 py-2 align-items-center">
+                            <span>Start Monitoring</span>
+                            <i class="rtmicon rtmicon-arrow-up-right fw-bold"></i>
+                        </a>
+                    </div>
+                </div>
+
+                <hr class="border-1 border-light" style="opacity: 1;">
+
+                <!-- Footer Bottom -->
+                <div class="d-flex flex-xl-row flex-column gap-xl-2 gap-3 align-items-center justify-content-between">
+                    <span class="text-white fs-6 font-2">
+                        © 2026 Posture Guardian | All rights reserved
+                    </span>
+                    <div class="d-flex flex-xl-row flex-column gap-3">
+                        <div>
+                            Email: postureguardian.ai@example.com
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </footer>
+
+
+
+
+    <!-- Scripts -->
+    <script src="/static/js/vendor/jquery.min.js"></script>
+    <script src="/static/js/vendor/bootstrap.bundle.min.js"></script>
+    <script src="/static/js/vendor/swiper-bundle.min.js"></script>
+    <script src="/static/js/script.js"></script>
+    <script src="/static/js/swiper-script.js"></script>
+    <script src="/static/js/submit-form.js"></script>
+    <script src="/static/js/vendor/isotope.pkgd.min.js"></script>
+    <script src="/static/js/video_embedded.js"></script>
+    <script src="/static/js/vendor/fslightbox.js"></script>
+    <script src="/static/cdn.jsdelivr.net/gh/shishirraven/animate-on-scroll%40v1.0/oyethemes_onscroll_animation.js"></script>
+</body>
+
+
+</html>

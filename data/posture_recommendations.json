@@ -1,0 +1,441 @@
+{
+    "Neck Right Tilt": {
+        "description": "Head tilted towards the right side causing uneven cervical muscle loading.",
+        "short_term_risks": [
+            "Neck stiffness",
+            "Shoulder tightness",
+            "Mild headaches"
+        ],
+        "long_term_risks": [
+            "Chronic neck pain",
+            "Cervical muscle imbalance",
+            "Postural asymmetry"
+        ],
+        "possible_diseases": [
+            "Cervical spondylosis",
+            "Muscle strain syndrome"
+        ],
+        "recommended_exercises": [
+            "Neck Left Stretch",
+            "Chin Tucks",
+            "Shoulder Shrugs"
+        ],
+        "ergonomic_advice": [
+            "Keep head centered",
+            "Adjust screen to eye level"
+        ]
+    },
+    "Neck Left Tilt": {
+        "description": "Head tilted towards the left side creating uneven strain on neck muscles.",
+        "short_term_risks": [
+            "Neck tightness",
+            "Upper back discomfort"
+        ],
+        "long_term_risks": [
+            "Cervical misalignment",
+            "Chronic muscle imbalance"
+        ],
+        "possible_diseases": [
+            "Cervical strain",
+            "Postural deviation"
+        ],
+        "recommended_exercises": [
+            "Neck Right Stretch",
+            "Posture Reset Drill",
+            "Chin Retraction Exercise"
+        ],
+        "ergonomic_advice": [
+            "Maintain neutral head position",
+            "Avoid resting head on one side"
+        ]
+    },
+    "Neck Forward Bend": {
+        "description": "Head positioned forward relative to shoulders causing cervical strain.",
+        "short_term_risks": [
+            "Neck stiffness",
+            "Shoulder tension",
+            "Headaches"
+        ],
+        "long_term_risks": [
+            "Cervical disc compression",
+            "Chronic neck pain"
+        ],
+        "possible_diseases": [
+            "Forward head syndrome",
+            "Cervical spondylosis"
+        ],
+        "recommended_exercises": [
+            "Chin Tuck – 10 reps",
+            "Wall Alignment Drill",
+            "Upper Trapezius Stretch"
+        ],
+        "ergonomic_advice": [
+            "Keep screen at eye level",
+            "Avoid leaning forward"
+        ]
+    },
+    "Neck Backward Bend": {
+        "description": "Excessive backward tilt of the neck increasing cervical compression.",
+        "short_term_risks": [
+            "Neck discomfort",
+            "Upper spine strain"
+        ],
+        "long_term_risks": [
+            "Cervical alignment issues",
+            "Muscle imbalance"
+        ],
+        "possible_diseases": [
+            "Cervical instability"
+        ],
+        "recommended_exercises": [
+            "Neck Neutral Alignment",
+            "Posture Reset Exercise"
+        ],
+        "ergonomic_advice": [
+            "Maintain neutral head posture",
+            "Avoid excessive upward gaze"
+        ]
+    },
+    "Left Shoulder Drop": {
+        "description": "Left shoulder positioned lower than right creating muscular imbalance.",
+        "short_term_risks": [
+            "Shoulder stiffness",
+            "Upper back strain"
+        ],
+        "long_term_risks": [
+            "Spinal asymmetry",
+            "Chronic shoulder imbalance"
+        ],
+        "possible_diseases": [
+            "Muscle imbalance syndrome"
+        ],
+        "recommended_exercises": [
+            "Shoulder Blade Squeeze",
+            "Wall Angels",
+            "Lateral Stretch"
+        ],
+        "ergonomic_advice": [
+            "Sit evenly balanced",
+            "Avoid leaning on one side"
+        ]
+    },
+    "Right Shoulder Drop": {
+        "description": "Right shoulder positioned lower than left causing uneven load distribution.",
+        "short_term_risks": [
+            "Shoulder discomfort",
+            "Neck tension"
+        ],
+        "long_term_risks": [
+            "Postural misalignment",
+            "Chronic upper back pain"
+        ],
+        "possible_diseases": [
+            "Muscle imbalance condition"
+        ],
+        "recommended_exercises": [
+            "Shoulder Elevation Exercise",
+            "Resistance Band Rows",
+            "Wall Stretch"
+        ],
+        "ergonomic_advice": [
+            "Adjust chair height",
+            "Keep shoulders level"
+        ]
+    },
+    "Uneven Shoulder Height": {
+        "description": "Both shoulders positioned at different heights causing imbalance.",
+        "short_term_risks": [
+            "Upper back discomfort",
+            "Muscle tightness"
+        ],
+        "long_term_risks": [
+            "Spinal deviation",
+            "Chronic muscle strain"
+        ],
+        "possible_diseases": [
+            "Functional scoliosis"
+        ],
+        "recommended_exercises": [
+            "Core Strengthening",
+            "Postural Correction Drill",
+            "Shoulder Mobility Exercises"
+        ],
+        "ergonomic_advice": [
+            "Maintain upright posture",
+            "Avoid carrying weight on one side"
+        ]
+    },
+    "Spine Left Curve": {
+        "description": "Spinal curvature toward the left side causing uneven muscle loading.",
+        "short_term_risks": [
+            "Back tightness",
+            "Hip discomfort"
+        ],
+        "long_term_risks": [
+            "Postural curvature development",
+            "Pelvic imbalance"
+        ],
+        "possible_diseases": [
+            "Mild scoliosis"
+        ],
+        "recommended_exercises": [
+            "Right Side Stretch",
+            "Bridge Exercise",
+            "Core Stability Exercise"
+        ],
+        "ergonomic_advice": [
+            "Sit evenly",
+            "Avoid leaning sideways"
+        ]
+    },
+    "Spine Right Curve": {
+        "description": "Spinal curvature toward the right side creating lateral imbalance.",
+        "short_term_risks": [
+            "Muscle tightness",
+            "Lower back discomfort"
+        ],
+        "long_term_risks": [
+            "Spinal asymmetry",
+            "Chronic lateral strain"
+        ],
+        "possible_diseases": [
+            "Functional scoliosis"
+        ],
+        "recommended_exercises": [
+            "Left Side Stretch",
+            "Core Strengthening",
+            "Spinal Rotation Stretch"
+        ],
+        "ergonomic_advice": [
+            "Keep shoulders aligned",
+            "Adjust seating posture"
+        ]
+    },
+    "Slouched Forward": {
+        "description": "Forward bending of upper body causing spinal stress.",
+        "short_term_risks": [
+            "Back pain",
+            "Muscle fatigue"
+        ],
+        "long_term_risks": [
+            "Disc compression",
+            "Chronic posture deviation"
+        ],
+        "possible_diseases": [
+            "Kyphosis",
+            "Lumbar strain"
+        ],
+        "recommended_exercises": [
+            "Back Extension Stretch",
+            "Plank Hold",
+            "Cat-Cow Stretch"
+        ],
+        "ergonomic_advice": [
+            "Maintain upright sitting posture",
+            "Use lumbar support"
+        ]
+    },
+    "Excessive Back Arch": {
+        "description": "Overarching of lower back increasing lumbar pressure.",
+        "short_term_risks": [
+            "Lower back discomfort",
+            "Core instability"
+        ],
+        "long_term_risks": [
+            "Lumbar degeneration",
+            "Chronic instability"
+        ],
+        "possible_diseases": [
+            "Lordosis"
+        ],
+        "recommended_exercises": [
+            "Pelvic Tilt Exercise",
+            "Core Strengthening",
+            "Hamstring Stretch"
+        ],
+        "ergonomic_advice": [
+            "Maintain neutral spine",
+            "Avoid standing with pelvis tilted forward"
+        ]
+    },
+    "Uneven Knee Height": {
+        "description": "Knees positioned at different heights indicating imbalance.",
+        "short_term_risks": [
+            "Leg fatigue",
+            "Hip strain"
+        ],
+        "long_term_risks": [
+            "Pelvic misalignment",
+            "Joint instability"
+        ],
+        "possible_diseases": [
+            "Gait imbalance"
+        ],
+        "recommended_exercises": [
+            "Quadriceps Strengthening",
+            "Hamstring Stretch",
+            "Wall Squats"
+        ],
+        "ergonomic_advice": [
+            "Stand evenly",
+            "Avoid shifting weight to one leg"
+        ]
+    },
+    "Knee Valgus (Inward)": {
+        "description": "Knees collapsing inward causing joint stress.",
+        "short_term_risks": [
+            "Knee discomfort",
+            "Joint strain"
+        ],
+        "long_term_risks": [
+            "Ligament damage",
+            "Cartilage wear"
+        ],
+        "possible_diseases": [
+            "ACL strain",
+            "Patellofemoral syndrome"
+        ],
+        "recommended_exercises": [
+            "Clamshell Exercise",
+            "Glute Strengthening",
+            "Step Up Drill"
+        ],
+        "ergonomic_advice": [
+            "Keep knees aligned with toes",
+            "Avoid inward knee collapse"
+        ]
+    },
+    "Knee Varus (Outward)": {
+        "description": "Knees positioned outward creating uneven medial stress.",
+        "short_term_risks": [
+            "Knee strain",
+            "Joint imbalance"
+        ],
+        "long_term_risks": [
+            "Medial joint degeneration"
+        ],
+        "possible_diseases": [
+            "Osteoarthritis"
+        ],
+        "recommended_exercises": [
+            "Inner Thigh Strengthening",
+            "Balance Training",
+            "Leg Alignment Exercise"
+        ],
+        "ergonomic_advice": [
+            "Maintain proper stance width",
+            "Keep knees aligned during walking"
+        ]
+    },
+    "Leg Misalignment / Asymmetry": {
+        "description": "Uneven leg alignment causing asymmetrical load distribution.",
+        "short_term_risks": [
+            "Hip discomfort",
+            "Knee pain"
+        ],
+        "long_term_risks": [
+            "Gait abnormalities",
+            "Chronic joint strain"
+        ],
+        "possible_diseases": [
+            "Functional leg length discrepancy"
+        ],
+        "recommended_exercises": [
+            "Single Leg Balance",
+            "Hip Strengthening",
+            "Alignment Drill"
+        ],
+        "ergonomic_advice": [
+            "Distribute weight evenly",
+            "Correct standing posture"
+        ]
+    },
+    "Left Hyperextended Knee": {
+        "description": "Left knee extended beyond normal range increasing ligament stress.",
+        "short_term_risks": [
+            "Joint stiffness",
+            "Mild knee pain"
+        ],
+        "long_term_risks": [
+            "Ligament laxity",
+            "Joint degeneration"
+        ],
+        "possible_diseases": [
+            "Hyperextension injury"
+        ],
+        "recommended_exercises": [
+            "Hamstring Strengthening",
+            "Controlled Squats",
+            "Balance Training"
+        ],
+        "ergonomic_advice": [
+            "Avoid locking knees while standing"
+        ]
+    },
+    "Right Hyperextended Knee": {
+        "description": "Right knee extended beyond normal range causing strain.",
+        "short_term_risks": [
+            "Knee discomfort",
+            "Joint instability"
+        ],
+        "long_term_risks": [
+            "Cartilage wear",
+            "Ligament weakness"
+        ],
+        "possible_diseases": [
+            "Hyperextension injury"
+        ],
+        "recommended_exercises": [
+            "Hamstring Curls",
+            "Quadriceps Strengthening",
+            "Posture Balance Drill"
+        ],
+        "ergonomic_advice": [
+            "Keep knees slightly flexed while standing"
+        ]
+    },
+    "Left Over-bent Knee": {
+        "description": "Left knee excessively bent increasing joint pressure.",
+        "short_term_risks": [
+            "Joint stiffness",
+            "Muscle fatigue"
+        ],
+        "long_term_risks": [
+            "Cartilage damage",
+            "Chronic knee pain"
+        ],
+        "possible_diseases": [
+            "Patellar strain"
+        ],
+        "recommended_exercises": [
+            "Leg Straightening Exercise",
+            "Wall Sit",
+            "Quadriceps Strengthening"
+        ],
+        "ergonomic_advice": [
+            "Avoid prolonged squatting"
+        ]
+    },
+    "Right Over-bent Knee": {
+        "description": "Right knee excessively bent leading to abnormal pressure.",
+        "short_term_risks": [
+            "Knee discomfort",
+            "Leg fatigue"
+        ],
+        "long_term_risks": [
+            "Joint degeneration",
+            "Ligament strain"
+        ],
+        "possible_diseases": [
+            "Patellofemoral syndrome"
+        ],
+        "recommended_exercises": [
+            "Step Ups",
+            "Quadriceps Exercise",
+            "Leg Alignment Drill"
+        ],
+        "ergonomic_advice": [
+            "Maintain proper knee alignment"
+        ]
+    }
+}

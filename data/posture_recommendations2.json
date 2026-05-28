@@ -1,0 +1,60 @@
+{
+    "Excess Knee Bend": {
+        "description": "Excessive bending of the knee joint creating abnormal joint pressure and muscle strain.",
+        "short_term_risks": [
+            "Knee discomfort",
+            "Joint stiffness",
+            "Leg fatigue"
+        ],
+        "long_term_risks": [
+            "Cartilage degeneration",
+            "Joint instability",
+            "Chronic knee pain"
+        ],
+        "possible_diseases": [
+            "Osteoarthritis",
+            "Patellofemoral pain syndrome",
+            "Ligament strain injury"
+        ],
+        "recommended_exercises": [
+            "Wall Sit",
+            "Straight Leg Raise",
+            "Quadriceps Strengthening",
+            "Hamstring Stretch"
+        ],
+        "ergonomic_advice": [
+            "Avoid prolonged squatting",
+            "Keep knees aligned with hips",
+            "Maintain proper sitting posture"
+        ]
+    },
+    "Neck Left Tilt": {
+        "description": "Head tilted towards the left side causing uneven cervical spine loading.",
+        "short_term_risks": [
+            "Neck stiffness",
+            "Shoulder tightness",
+            "Mild headaches"
+        ],
+        "long_term_risks": [
+            "Cervical muscle imbalance",
+            "Spinal asymmetry",
+            "Chronic neck pain"
+        ],
+        "possible_diseases": [
+            "Cervical spondylosis",
+            "Tension headache disorder",
+            "Nerve compression"
+        ],
+        "recommended_exercises": [
+            "Neck Side Stretch",
+            "Chin Tucks",
+            "Shoulder Rolls",
+            "Posture Alignment Drill"
+        ],
+        "ergonomic_advice": [
+            "Keep head centered over shoulders",
+            "Adjust screen height to eye level",
+            "Avoid leaning on one side while sitting"
+        ]
+    }
+}
